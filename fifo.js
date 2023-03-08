@@ -1,24 +1,42 @@
-
-const myarray=[];
-function pushItem(item){
-    const lengthOfArray = myarray.length;
-    for(i=0; i<lengthOfArray; i++){
-        myarray[lengthOfArray-i] = myarray[lengthOfArray-i-1]
+let myArray = [1,2,3,4]
+// Push To Array
+const pushToArray = (thisArray,newVariable) => {
+    const newArray = [newVariable]
+    for(let i = 0; i <thisArray.length ; i++){
+       newArray[i+1] = thisArray[i]
+    //    console.log("thisArray[i]=" , thisArray[i])
+    //    console.log("newArray[i+1]=" , newArray[i+1])
     }
-    myarray[0]=item;
+    return newArray
 }
-function pullItem(){
+myArray = pushToArray(myArray,10);
+console.log("myArray added 10 in first index:", myArray);
+
+// pull from Array
+let newArray = []
+const popFromArray = () =>{
     
-    const lengthOfArray = myarray.length;
-    if(lengthOfArray>0){
-       return myarray.splice(lengthOfArray-1,1);
-
+    for( i=myArray.length ; i > 0 ; i--){
+        myArray.length = i
+        console.log("index is:", i);
+        newArray = myArray[i-1]
+        console.log("generate Array is: ", newArray)  
     }
+        return myArray
 }
-pushItem(1);
-pushItem(2);
-pushItem(3);
-pushItem(4);
-console.log(myarray);
-console.log(pullItem());
-console.log(myarray);
+const newArrayGenerate = popFromArray(myArray);
+console.log(newArrayGenerate); 
+
+
+
+/*const popFromArray = () =>{
+    for(let i=myArray.length ; i > 0 ; i--){
+        myArray.length = myArray.length -1
+    }
+        return myArray
+}
+const newArrayGenerate = popFromArray(myArray);
+console.log(newArrayGenerate);*/
+
+
+
